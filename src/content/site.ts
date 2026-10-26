@@ -23,7 +23,8 @@ export const profile = {
     role: "Advanced Associate Software Engineer",
   },
   /** Hero introduction — grounded in the resume. */
-  intro: "I build full-stack applications with Java, Spring Boot and React.",
+  intro:
+    "I build full-stack applications with Java, Spring Boot and React, combining reliable backend services, well-designed APIs and responsive interfaces. I focus on writing maintainable software that solves practical problems.",
   /** Rotating focus line in the hero. */
   focusAreas: [
     "Spring Boot services",

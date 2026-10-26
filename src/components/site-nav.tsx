@@ -117,11 +117,18 @@ export function SiteNav() {
                   <a
                     href={`#${item.id}`}
                     aria-current={isActive ? "location" : undefined}
-                    className={`relative z-10 block rounded-full px-4 py-2 text-small transition-colors duration-(--duration-base) ${
+                    className={`group/link relative z-10 block rounded-full px-4 py-2 text-small transition-colors duration-(--duration-base) ${
                       isActive ? "text-fg" : "text-fg-muted hover:text-fg"
                     }`}
                   >
                     {item.label}
+                    {/* Underline: draws left → right on hover/focus; stays drawn for the active section. */}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute inset-x-4 bottom-1 h-px origin-left bg-linear-to-r from-cobalt to-cyan transition-transform duration-200 ease-out-quart group-hover/link:scale-x-100 group-focus-visible/link:scale-x-100 ${
+                        isActive ? "scale-x-100" : "scale-x-0"
+                      }`}
+                    />
                   </a>
                   {isActive && (
                     <motion.span
@@ -129,9 +136,7 @@ export function SiteNav() {
                       aria-hidden="true"
                       className="absolute inset-0 rounded-full border border-line-strong bg-raised"
                       transition={spring.snappy}
-                    >
-                      <span className="absolute -bottom-px left-1/2 h-px w-5 -translate-x-1/2 bg-cyan" />
-                    </motion.span>
+                    />
                   )}
                 </li>
               );

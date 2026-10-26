@@ -62,7 +62,7 @@
   --text-title: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
   --text-title--line-height: 1.08;
   --text-title--letter-spacing: -0.028em;
-  --text-display: clamp(3.25rem, 1.75rem + 6.6vw, 7.25rem);
+  --text-display: clamp(3rem, 1.6rem + 6.15vw, 6.75rem); /* ~7% below the original 3.25rem/6.6vw/7.25rem */
   --text-display--line-height: 0.95;
   --text-display--letter-spacing: -0.035em;
 
