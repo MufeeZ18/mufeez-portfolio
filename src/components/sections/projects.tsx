@@ -149,7 +149,7 @@ export function Projects() {
         index="02"
         eyebrow="Projects"
         titleId="projects-title"
-        title="Selected projects"
+        title="Featured Projects"
       />
       <div className="mt-stack space-y-5">
         {projects.map((project, i) => (

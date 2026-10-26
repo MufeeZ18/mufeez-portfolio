@@ -29,7 +29,7 @@ Skills: resume groups + AWS (confirmed). Must include AWS, Docker, Kubernetes. R
 
 Hero copy: badge "Currently at Accenture"; intro "I build full-stack applications with Java, Spring Boot and React."
 
-Projects (section title "Selected projects"; artwork captioned "Concept illustration" by default, "UI concept" for the Ecosphere and Airbnb Clone HTML previews, per-slide captions ("Photo · Unsplash" / "UI concept" / "Concept illustration") for the three slideshow cards; no explanatory paragraph):
+Projects (section title "Featured Projects"; artwork captioned "Concept illustration" by default, "UI concept" for the Ecosphere and Airbnb Clone HTML previews, per-slide captions ("Photo · Unsplash" / "UI concept" / "Concept illustration") for the three slideshow cards; no explanatory paragraph):
 1. **Ecosphere** — "Social media application"; tech React.js, Node.js, Express.js, MongoDB, JWT. Functionality comes only from the resume's "Social Engagement Platform" entry (posts, likes, comments, connections, JWT-authenticated access). Description text supplied by Mufeez.
 2. **Airbnb Clone** — described from the resume's "Property Booking & Reservation Platform".
 3. **Inventory Management System** — label "Full Stack Application". Description, highlights and tech list were supplied directly by Mufeez (purchase recording, vendor/material lookup, vendor + date-range reports; Spring Boot + React). It is **not** the resume's "Retail Inventory & Recommendation Platform" — an earlier version wrongly reused that content (JDBC, stock updates, recommendations); never reintroduce it. Never call it a capstone anywhere on the site.
