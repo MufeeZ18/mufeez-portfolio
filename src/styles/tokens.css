@@ -1,0 +1,118 @@
+/*
+ * Design tokens — the single source for color, type, space, borders, motion.
+ *
+ * Tokens inside @theme become both CSS variables (var(--color-fg)) and
+ * Tailwind utilities (text-fg, bg-ink, px-gutter, font-display, ease-out-expo…).
+ * Tokens in :root are plain CSS variables only.
+ *
+ * Contrast (WCAG, against --color-ink #09090B):
+ *   fg 17.2:1 · fg-muted 9.0:1 · fg-subtle 5.6:1 · cobalt 6.3:1 · cyan 13.2:1
+ * --color-cobalt-deep (3.9:1) is for fills, glows and strokes only — never text.
+ */
+
+@theme {
+  /* Restrained palette: drop Tailwind's default colors so nothing off-brand slips in. */
+  --color-*: initial;
+
+  /* ── Color: surfaces (near-black, lifted slightly per layer) */
+  --color-ink: #09090b;
+  --color-surface: #0f0f12;
+  --color-raised: #16161a;
+  --color-overlay: rgb(15 15 18 / 0.72);
+
+  /* ── Color: warm-white text ramp */
+  --color-fg: #f3eee4;
+  --color-fg-muted: #b4aea3;
+  --color-fg-subtle: #8c877e;
+
+  /* ── Color: cobalt accent (primary) + cyan highlight (secondary, sparing) */
+  --color-cobalt: #5b8cff;
+  --color-cobalt-deep: #3461f0;
+  --color-cobalt-glow: rgb(52 97 240 / 0.22);
+  --color-cyan: #67e3f9;
+  --color-cyan-glow: rgb(103 227 249 / 0.16);
+
+  /* ── Color: hairlines (warm white at low alpha) */
+  --color-line: rgb(243 238 228 / 0.08);
+  --color-line-strong: rgb(243 238 228 / 0.16);
+
+  /* ── Typography: families are injected by next/font in layout.tsx */
+  --font-*: initial;
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+
+  /* ── Typography: fluid scale (min @ 360px → max @ 1440px) */
+  --text-*: initial;
+  --text-micro: 0.6875rem; /* 11px — mono labels */
+  --text-micro--line-height: 1.4;
+  --text-small: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+  --text-small--line-height: 1.5;
+  --text-body: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --text-body--line-height: 1.65;
+  --text-lead: clamp(1.0625rem, 0.98rem + 0.45vw, 1.3125rem);
+  --text-lead--line-height: 1.55;
+  --text-heading: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  --text-heading--line-height: 1.2;
+  --text-heading--letter-spacing: -0.01em;
+  /* Card titles (projects) — between heading and section title. */
+  --text-card: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-card--line-height: 1.15;
+  --text-card--letter-spacing: -0.02em;
+  --text-title: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
+  --text-title--line-height: 1.08;
+  --text-title--letter-spacing: -0.028em;
+  --text-display: clamp(3.25rem, 1.75rem + 6.6vw, 7.25rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.035em;
+
+  --tracking-label: 0.16em;
+
+  /* ── Spacing: fluid layout rhythm (component spacing uses Tailwind's 4px grid) */
+  --spacing-gutter: clamp(1.25rem, 0.6rem + 3.2vw, 3.5rem);
+  --spacing-section: clamp(4.5rem, 3rem + 5vw, 7.5rem);
+  --spacing-stack: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+  --container-content: 80rem;
+  --container-measure: 62ch;
+
+  /* ── Borders */
+  --radius-*: initial;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  /* ── Motion easings (mirrored in src/lib/motion.ts) */
+  --ease-*: initial;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+:root {
+  /* ── Borders */
+  --border-hairline: 1px solid var(--color-line);
+  --border-strong: 1px solid var(--color-line-strong);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 3px;
+
+  /* ── Layout */
+  --nav-height: 4.5rem;
+
+  /* ── Motion durations (mirrored in src/lib/motion.ts) */
+  --duration-fast: 160ms;
+  --duration-base: 320ms;
+  --duration-slow: 700ms;
+  --duration-cinematic: 1100ms;
+  --stagger: 90ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-cinematic: 0ms;
+    --stagger: 0ms;
+  }
+}
